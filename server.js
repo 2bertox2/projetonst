@@ -87,7 +87,7 @@ app.post('/create-payment', async (req, res) => {
     const lastName = nameParts.join(' ');
     const cleanedCpf = cpf.replace(/[^\d]/g, "");
     const itemName = `MÓDULO I (${turma === 'quarta_3007' ? 'Quarta' : 'Sábado'})`;
-    const itemPrice = 20.00;
+    const itemPrice = 29.00;
     const newInscription = {
         id: `insc_${Date.now()}`, name: fullName, email: email, cpf: cleanedCpf,
         product: itemName, status: 'pending', createdAt: new Date().toISOString(), payment_id: null
