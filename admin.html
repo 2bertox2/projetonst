@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inscrições</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="img/logo nilson.png" alt="Logo" class="logo">
+                <h3>Projeto Lúmen</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/admin.html" class="nav-item active">Dashboard</a>
+                <a href="/" class="nav-item">Ver Site Principal</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Dashboard de Inscrições</h2>
+                <div>
+                    <button id="export-csv-btn" class="header-button">Exportar para Excel (CSV)</button>
+                </div>
+            </header>
+            <section class="metrics-grid">
+                <div class="metric-card"><h4>Inscrições Pagas</h4><p id="total-paid">0</p></div>
+                <div class="metric-card"><h4>Receita Total</h4><p id="total-revenue">R$ 0,00</p></div>
+                <div class="metric-card"><h4>Turma de Quarta</h4><p id="quarta-count">0</p></div>
+                <div class="metric-card"><h4>Turma de Sábado</h4><p id="sabado-count">0</p></div>
+            </section>
+            <section class="data-section">
+                <div class="chart-container">
+                    <h3>Inscrições por Dia</h3>
+                    <canvas id="inscriptions-chart"></canvas>
+                </div>
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Lista de Inscritos</h3>
+                        <input type="text" id="search-input" placeholder="Buscar por nome ou e-mail...">
+                    </div>
+                    <table id="inscriptions-table">
+                        <thead><tr><th>Data</th><th>Nome</th><th>Email</th><th>Produto</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
