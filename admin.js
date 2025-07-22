@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateMetrics = (data) => {
         document.getElementById('total-paid').textContent = data.length;
-        const totalRevenue = data.length * 25;
+        const totalRevenue = data.length * 29;
         document.getElementById('total-revenue').textContent = formatCurrency(totalRevenue);
         const quartaCount = data.filter(insc => insc.product.includes('Quarta')).length;
         const sabadoCount = data.filter(insc => insc.product.includes('Sábado')).length;

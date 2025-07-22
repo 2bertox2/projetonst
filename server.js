@@ -32,13 +32,13 @@ async function sendConfirmationEmail(inscription) {
             return;
         }
         await transporter.sendMail({
-            from: `"Projeto Lúmen" <${EMAIL_CONFIG.user}>`,
+            from: `"Projeto NST TREINAMENTO" <${EMAIL_CONFIG.user}>`,
             to: inscription.email,
             subject: "Inscrição Confirmada - A Percepção do Analista",
             html: `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                     <h1 style="color: #0D1B2A;">Olá, ${inscription.name}!</h1>
-                    <p>Sua inscrição para o <strong>Módulo I - Luto Mal Resolvido</strong> foi confirmada com sucesso!</p>
+                    <p>Sua inscrição para o <strong>MÓDULO 1 - LUTO MAL RESOLVIDO</strong> foi confirmada com sucesso!</p>
                     <p><strong>Turma:</strong> ${inscription.product}</p>
                     <hr>
                     <h3>Instruções para o dia do evento:</h3>
@@ -46,7 +46,7 @@ async function sendConfirmationEmail(inscription) {
                     <p>Aguardamos você!</p>
                     <br>
                     <p>Atenciosamente,</p>
-                    <p>Equipe Projeto Lúmen</p>
+                    <p>Equipe NST TREINAMENTO</p>
                     <hr>
                     <p style="font-size: 0.8em; color: #888;">
                         Ficou com alguma dúvida? Envie um e-mail para: <a href="mailto:nilsonsantosterapeuta@gmail.com">nilsonsantosterapeuta@gmail.com</a>
