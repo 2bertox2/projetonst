@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '')));
 // --- CONSTANTES E CONFIGURAÇÕES ---
 const DB_FILE = './inscriptions.json';
 const APOSTILA_DB_FILE = './apostilas_vendidas.json';
-const APOSTILA_PRICE = 19.90;
+const APOSTILA_PRICE = 19.00;
 
 // Lendo as chaves de forma segura do ambiente de hospedagem
 const MERCADO_PAGO_TOKEN = process.env.MERCADO_PAGO_TOKEN;
