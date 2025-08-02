@@ -29,6 +29,12 @@
                 
                 <button type="submit" class="submit-btn" id="submit-button">COMPRAR APOSTILA E PAGAR</button>
                  <br><br>
+                
+                 <div style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1.5rem; text-align: center;">
+                    <h3 style="font-weight: 600; color: #444; margin-bottom: 0.5rem;">Teve algum problema?</h3>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Se não receber a apostila no seu e-mail após a confirmação do pagamento, por favor, entre em contacto para solicitar o reenvio:</p>
+                    <a href="mailto:nilsonsantosterapeuta@gmail.com" style="font-weight: 600; color: #3d84e6;">nilsonsantosterapeuta@gmail.com</a>
+                </div>
             </form>
         </div>
     </div>
@@ -69,14 +75,10 @@
         const closeModalBtn = document.getElementById('close-modal-btn');
         let pollingInterval;
         const userEmailConfirm = document.getElementById('user-email-confirm');
-        
-        // Usamos um nome de variável diferente para o ID para evitar conflitos
-        let currentPurchaseId = null;
 
         function startPolling(id) {
             pollingInterval = setInterval(async () => {
                 try {
-                    // O endpoint de verificação agora recebe um ID genérico
                     const response = await fetch(`/check-status?id=${id}`);
                     const data = await response.json();
                     if (data.status === 'paid') {
@@ -104,18 +106,15 @@
             };
 
             try {
-                // A nova rota para a apostila
                 const response = await fetch('/create-payment-apostila', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
                 if (!response.ok) throw new Error('Falha ao gerar o PIX.');
                 const paymentData = await response.json();
                 qrCodeImage.src = `data:image/png;base64,${paymentData.qrCodeBase64}`;
                 pixCopyPaste.value = paymentData.qrCodeText;
                 modal.style.display = 'flex';
-                // A resposta do servidor agora nos dará um ID específico para a compra
                 startPolling(paymentData.purchaseId);
             } catch (error) {
                 alert(error.message);
-            } finally {
                 submitButton.disabled = false;
                 submitButton.textContent = 'COMPRAR APOSTILA E PAGAR';
             }
